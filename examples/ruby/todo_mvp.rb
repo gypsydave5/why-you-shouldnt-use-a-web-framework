@@ -1,37 +1,62 @@
-# This example uses no routing library, and uses Rack's built in helpers to
-# parse request and generate response
-#
-# This could probably be made better with some more ruby-ish love like (a)
-# classes and (b) erb.
-#
-# Oh, and tests.
-
 require 'rack'
+require 'erb'
 
-# Wrap this up in a nicer API and a class - extend with a delete and edit
-$todos = [{name: "Get up!", done: false}]
+class Todo
+  attr_reader :name, :done
 
-def add_todo name
-  $todos.push({name: name, done: false})
-end
+  def initialize name
+    @name = name
+    @done = false
+  end
 
-def toggle_todo name
-  $todos = $todos.map do |todo|
-    if todo[:name] == name
-      {name: name, done: !todo[:done]}
-    else
-      todo
-    end
+  def toggle
+    @done = !@done
+    self
   end
 end
 
-# Here's a simple top level router
+class TodoList
+  @@template = ERB.new File.read("./pages/todo_list.html.erb")
 
+  attr_reader :todos
+
+  def initialize
+    @todos = []
+  end
+
+  def add name
+    @todos.push(Todo.new(name))
+  end
+
+  def toggle name
+    @todos = @todos.map do |todo|
+      if todo.name == name
+        todo.toggle
+      else
+        todo
+      end
+    end
+  end
+
+  def render
+    @@template.result(binding)
+  end
+end
+
+# The todo 'API' - global (for now)
+$todos = TodoList.new
+
+# Page - global for now - could be wrapped up
+$new_todo_page = ERB.new File.read("./pages/new_todo.html.erb")
+
+# Here's a simple top level router - could be a class if it implements 'call'
 def new_router
-  Proc.new do |env|
+  app = Proc.new do |env|
     request = Rack::Request.new(env)
     routes(request).finish
   end
+
+  Rack::Static.new(app, :urls => ["/css"], :root => "public")
 end
 
 def routes request
@@ -80,13 +105,13 @@ def show_add_todo_form_handler request
   response = Rack::Response.new
   response.status = 200
   response.set_header 'Content-Type', 'text/html'
-  response.write page("Add new todo", new_todo_form())
+  response.write $new_todo_page.result
   response
 end
 
 def add_todo_handler request
   name = request[:name]
-  add_todo name
+  $todos.add name
   redirect "/todo"
 end
 
@@ -94,64 +119,15 @@ def show_todos_handler request
   response = Rack::Response.new
   response.status = 200
   response.set_header 'Content-Type', 'text/html'
-  response.write page("Todos", link_to_add_new_todo, todo_list($todos))
+  response.write $todos.render
   response
 end
 
 def toggle_todo_handler request
   puts request.params
   name = request[:name]
-  toggle_todo name
+  $todos.toggle name
   redirect "/todo"
-end
-
-def link_to_add_new_todo
-  %|<a href="/new-todo">Add todo</a>|
-end
-
-def page title, *body
-  %|<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>#{title}</title>
-    <style>#{css}</style>
-  </head>
-  <body>
-    <h1>TODOS</h1>
-      #{body.join}
-  </body>
-</html>|
-end
-
-def todo_list todos
-  "<ul>" + todos.map do |todo|
-    name = todo[:name]
-    completed_class = todo[:done] ? "complete" : "incomplete"
-    icon = todo[:done] ? "(Undo)" : "Complete"
-    url = "/toggle-todo?name=#{Rack::Utils.escape_path(name)}"
-
-    %|<li class="todo-item">
-    <span class="#{completed_class}">#{name}</span><a href="#{url}">#{icon}</a>
-    </li>|
-  end.join + "</ul>"
-end
-
-def new_todo_form
-  %|<h2>Add a new todo item</h2>
-  <form method="post">
-  <input type="text" name="name" placeholder="e.g. Pick up shopping">
-  <input type="submit" value="Add">
-  </form>|
-end
-
-def css
-  %|
-  span.complete {
-    text-decoration: line-through
-  }
-|
 end
 
 def not_found
