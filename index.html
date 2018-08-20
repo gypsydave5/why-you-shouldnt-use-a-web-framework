@@ -65,7 +65,7 @@ class: middle, center
 
 ---
 
-## About Me (@gypsydave5)
+## About Me ([@gypsydave5](https://twitter.com/gypsydave5))
 
 - Makers Academy (August 2014)
 - Full Stack Developer @Mergermarket ~3 years
@@ -145,6 +145,21 @@ class: center, middle
 This is a great talk by Adrian Holovaty, who co-wrote the Python web framework Django. It's a really good watch - he's talking about JavaScript frameworks (he's at a JS conference). I'll mention what he says as we continue
 
 ---
+class: middle
+
+# Two good blog posts
+
+### [How it feels to learn JavaScript in 2016](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f)
+
+### ["It's the Future"](https://circleci.com/blog/its-the-future/)
+
+???
+
+And these two fun blog posts which are worth a read and dramatise _some_ of the things I'm talking about today.
+
+The talk is all online and built using a framework because I embrace irony, so you can read and click and watch to your leisure later.
+
+---
 
 class: center, middle
 
@@ -153,14 +168,6 @@ class: center, middle
 ???
 
 The reason I've come along to Makers to talk to you is that a lot of the criticism I got was because I tagged this post up as being for beginners. And so I thought I should try and share my thoughts, and why I think they're relevant to people like you - like us - who are learning web development.
-
----
-
-class: center
-
-- Overload
-- YAGNI / MVP
-- Your Future
 
 ---
 class: middle, center
@@ -336,42 +343,36 @@ class: middle, center
 When I was learning this stuff here, AngularJS was getting a foothold for JavaScript SPAs, but people used things like Backbone too, along with Ember. Within months that had turned into React. Then it was Angular 2. Then Vue. Now Backbone's not cool. Is React still Cool? What am I meant to use react with? Is Redux still cool? Or is it Redux Sagas? Or Thunks? Or...
 
 This is the crap that goes through my head when I'm trying to get some work done. What am I meant to do? Is this 'cool'? And I've been doing this for nigh-on four years. What's it like now for you guys who have been doing it for four _weeks_?
+
 ---
+class: middle, center
 
 # Good News!
 
-## _YOU DON'T NEED THEM_
----
+## _YOU DON'T NEED ANY OF THEM_
 
-# You only need
+???
+
+So I've got some good news!
+
+---
+class: middle
+
+# You only _need_
 
 - HTML
 - CSS
 - JavaScript
-- A Web Server + HTTP Library (you choose the language!)
+- A Web Server + HTTP Library
 
 ---
-class: middle, center
+class: center, middle
 
-# YAGNI / MVP
+# Objections!
 
 ???
 
-So, have we all learned what these two acronyms mean?
-
-- YAGNI = You Ain't Gonna Need It
-- MVP = Minimum Viable Product
-
----
-class: middle, center
-
-### With respect to Frontend Frameworks...
-
-# Is a Single Page App _ever_ MVP?
-
-???
-
-Is it? What's the thing that I can't achieve by rendering pages on the server? Is that thing the first iteration? The second iteration? Frameworks might be what you need at the end, but I hate the idea of us losing the iterative model of development
+so why might this be bad idea?
 
 ---
 class: middle, center
@@ -382,6 +383,93 @@ class: middle, center
 class: middle, center
 
 # A: Modern HTML, CSS, JS have modern APIs
+
+???
+
+A lot (not all) of these frameworks are from THE WAY BEFORE TIMES, when JavaScript was (even more) horrible, HTML was built of `div`s and CSS was what you used to make text blink.
+
+
+---
+# HTML
+
+```html
+<article>
+  <h1>Behold HTML 5</h1>
+  <section>
+    <p>Glorious, semantic HTML!</p>
+    <p>Look - it's a date!</p>
+  </section>
+  <date>1/1/1970</date>
+  <aside>(It's the tops!)</aside>
+</article>
+```
+
+???
+
+Things are grown up now! HTML 5 will describe a page in `section`s with `aside`s and other glorious semantic fun!
+
+---
+# CSS
+
+```css
+article {
+   display: flex;
+   box-sizing: border-box;
+}
+
+article date {
+   font-weight: 800;
+   flex: 1 1 auto;
+}
+
+article aside {
+   background: blue;
+   flex: 1 1 auto;
+}
+```
+
+???
+
+CSS 3 has beautiful things like `flexbox` and `grid` to let us lay out a page quickly, simply and responsively!
+
+---
+# JavaScript
+
+```javascript
+function whootAlert () {
+  fetch('http://www.google.com')
+    .then(response => response.body())
+    .then(alert)
+}
+
+document.querySelectorAll('date')
+    .forEach(element => {
+      element.addEventListener('click', whootAlert)
+    })
+```
+
+???
+
+And JavaScript is... well JavaScript is still The Hardest Programming Language You'll Ever Learn (TM), but it's been extended to include BEAUTIFUL ways of interacting with a website, a SIMPLER syntax, and actually usable ways of making an HTTP request - all baked in to your browser!
+
+---
+# Web Server / HTTP Library
+
+```ruby
+def say_hello_world
+  response = Rack::Response.new
+  response.status = 200
+  response.set_header 'Content-Type', 'text/html'
+  response.write "<h1>Hello World</h2>"
+  response
+end
+```
+
+???
+
+Web Server / HTTP Library ... well, this might be a bit trickier for you. Many languages will now provide a built in way of creating an HTTP server, and some convenience functions/classes around HTTP requests and responses. Go is a good example, but also things like HTTP4J in Kotlin, or Rack in Ruby, are good examples of a lightweight 'library' approach to building a server.
+
+That said, and despite my best wishes, I can understand why you might use a lightweight framework approach - something like Sinatra. But take a look at Rack on its own sometime! It might be all you need. The same goes for Java - take a look at something like [uttlerlyidle](https://github.com/bodar/utterlyidle) - or even [Spark](http://sparkjava.com/) before you use something like Spring.
 
 ---
 class: middle, center
