@@ -384,6 +384,10 @@ class: middle
 
 All you need are (probably) these four things, and the wisdom to know when to use them and how to use them.
 
+These four have been powering the Internet for the last twenty years. If you're suffering from paralysis about what to learn, if you're feeling overwhelmed by what to do - pick one of these four. They are a truly worthwhile investment.
+
+And SQL, but that's another matter.
+
 ---
 class: center, middle
 
@@ -402,19 +406,20 @@ class: middle, center
 
 ???
 
-Some of the objections are that it's hard(er) for people just starting out to use the simple technologies that come with every browser. Really?
+Some of the objections are that it's hard(er) for people just starting out to use the simple technologies that come with every browser. That they need the extra power of a framework to get stuff done. Really?
 
 ---
 class: middle, center
 
 # A: Modern HTML, CSS, JS have modern APIs
 
+(picture of the kids from Mad Max III)
+
 ???
 
 So I disagree, and feel that these technologies are _more_ inclusive and welcoming to a junior developer than the reams of time and effort that you'll put in to learning how to create a web app in a framework.
 
 A lot (not all) of these frameworks are from THE WAY BEFORE TIMES, when JavaScript was (even more) horrible, HTML was built of `div`s and CSS was what you used to make text blink.
-
 
 ---
 # HTML
@@ -426,14 +431,14 @@ A lot (not all) of these frameworks are from THE WAY BEFORE TIMES, when JavaScri
     <p>Glorious, semantic HTML!</p>
     <p>Look - it's a date!</p>
   </section>
-  <date>1/1/1970</date>
-  <aside>(It's the tops!)</aside>
+  <time datetime="1970-01-01">Jan 1, 1970</time>
+  <aside>It really is the tops!</aside>
 </article>
 ```
 
 ???
 
-Things are grown up now! HTML 5 will describe a page in `section`s with `aside`s and other glorious semantic fun!
+Things are grown up now! HTML 5 will describe a page in `section`s with `aside`s and other glorious semantic fun! It's quick and easy to write some nice structure.
 
 ---
 # CSS
@@ -457,7 +462,7 @@ article aside {
 
 ???
 
-CSS 3 has beautiful things like `flexbox` and `grid` to let us lay out a page quickly, simply and responsively!
+CSS has beautiful things like `flexbox` and `grid` to let us lay out a page quickly, simply and responsively. No need to rely on Bootstrap and other layout frameworks - CSS has it covered.
 
 ---
 # JavaScript
@@ -477,7 +482,7 @@ document.querySelectorAll('date')
 
 ???
 
-And JavaScript is... well JavaScript is still The Hardest Programming Language You'll Ever Learn (TM), but it's been extended to include BEAUTIFUL ways of interacting with a website, a SIMPLER syntax, and actually usable ways of making an HTTP request - all baked in to your browser!
+And JavaScript is... well JavaScript is still The Hardest Programming Language You'll Ever Learn (TM), but it's been extended to include BEAUTIFUL ways of interacting with a website, a SIMPLER syntax, and actually usable ways of making an HTTP request (`fetch` is so fetch) - all baked in to your browser!
 
 ---
 # Web Server / HTTP Library
@@ -496,7 +501,7 @@ end
 
 Web Server / HTTP Library ... well, this might be a bit trickier for you. Many languages will now provide a built in way of creating an HTTP server, and some convenience functions/classes around HTTP requests and responses. Go is a good example, but also things like HTTP4J in Kotlin, or Rack in Ruby, are good examples of a lightweight 'library' approach to building a server.
 
-That said, and despite my best wishes, I can understand why you might use a lightweight framework approach - something like Sinatra. We should be pragmatic. But take a look at Rack on its own sometime! It might be all you need. The same goes for Java - take a look at something like [uttlerlyidle](https://github.com/bodar/utterlyidle) - or even [Spark](http://sparkjava.com/) before you use something like Spring.
+That said, and despite my best wishes, I can understand why you might use a lightweight framework approach - something like Sinatra. You should be pragmatic. But take a look at Rack on its own sometime! It might be all you need. The same goes for Java - take a look at something like [uttlerlyidle](https://github.com/bodar/utterlyidle) - or even [Spark](http://sparkjava.com/) before you use something like Spring.
 
 ---
 class: middle, center
@@ -520,13 +525,13 @@ class: middle, center
 ---
 class: middle, center
 
-# A: Recruitment is Broken
+# A: Yes. Recruitment is Broken
 
 ???
 
-This might actually be true. Recruitment in software development is horrifically faddy, especially when it comes to front end frameworks. But it's the same for the back end too, just with different buzzword technologies.
+This might actually be true. Recruitment in software development is horrifically faddy, especially when it comes to front-end frameworks. And don't start me on languages. It's the same for the back end too, just with different buzzword technologies.
 
-This is a good reason to put some of these buzzwords on a CV. This is not a good reason to use them.
+This is a good reason to put some of these buzzwords on a CV. This is not a good reason to use them to build something.
 
 ---
 class: middle, center
@@ -536,6 +541,23 @@ class: middle, center
 ???
 
 Look, I want you to come away from this feeling not overwhelmed, but empowered. I want you to know that, fundamentally, you need to know four things  - HTML, CSS, JS and a Server - and how to glue them all together with a browser. You don't need to know them inside out - you just need to know enough to implement the next feature.
+
+---
+class: center
+
+### Shameless Plug
+
+# [Todo-MVP](https://github.com/gypsydave5/todo-mvp)
+
+Minimal viable todo apps
+
+(a response to [TodoMVC](http://todomvc.com/))
+
+???
+
+Because I think I should put my money where my mouth is, I've started to build a collection of Todo apps built using super simple technologies in a number of different backend languages. Early days so far.
+
+This is a response to flood of Todo app examples written for every front end framework you can name. I really want show off what can be done without writing a single page app, but just with simple, clean HTML, CSS, JavaScript and a back end server.
 
 ---
 class: middle, center
