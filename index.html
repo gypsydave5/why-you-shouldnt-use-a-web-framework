@@ -63,17 +63,23 @@ class: middle, center
 
 ???
 
+Hi - thanks for having me. It's lovely to be back at Makers Acad... OK, just Makers now.
+
+This talk, like all things, isn't really finished - I keep adding stuff and taking away stuff. I had at least one major insight on the tube this morning, and I haven't had time to add any gifs to any of the slides. Boo.
+
 ---
 
 ## About Me ([@gypsydave5](https://twitter.com/gypsydave5))
 
-- Makers Academy (August 2014)
-- Full Stack Developer @Mergermarket ~3 years
+- Makers (Academy) (August 2014)
+- Full Stack Developer @Acuris ~3 years
 - Now @SpringerNature for ~1 year
 - Working with NodeJS, Go, Kotlin and *not enough* Ruby
 - Loves Lisp(s)
 
 ???
+
+A bit about me - I was a student here, I got a job! Still amazing. Now I do this stuff for a living. Talk to me about Lisp afterwards if you want a boring conversation.
 
 ---
 class: center, middle
@@ -105,15 +111,6 @@ Some people hated it
 ---
 class: center, middle
 
-![Spring attack squad](images/devto-spring.png)
-
-???
-
-Some people said some plain weird stuff
-
----
-class: center, middle
-
 .border[![Weak or Stupid?](images/weak-or-stupid.png)]
 
 ???
@@ -122,27 +119,20 @@ It was somewhat inflamatory - so I guess I should've expected the hate.
 
 (it was worse on Twitter)
 
-But it did help me think about what it was that I was on about... Get some clarity in my thoughts
-
-and try and write something a little more measured. It also meant that a few people came out of
-the wood work to give me some further reading, and watching, such as...
-
----
-
-???
+But it did help me think about what it was that I was on about... Get some clarity in my thoughts and try and write something a little more measured. It also meant that a few people came out of the wood work to give me some further reading, and watching, such as...
 
 ---
 
 class: center, middle
 
 # Adrian Holovaty
-## A Framework Author's Case Against Frameworks
+#### A Framework Author's Case Against Frameworks
 
 <iframe width="672" height="378" src="https://www.youtube.com/embed/VvOsegaN9Wk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ???
 
-This is a great talk by Adrian Holovaty, who co-wrote the Python web framework Django. It's a really good watch - he's talking about JavaScript frameworks (he's at a JS conference). I'll mention what he says as we continue
+This is a great talk by Adrian Holovaty, who co-wrote the Python web framework Django. It's a really good watch - he's talking about JavaScript frameworks (he's at a JS conference). I'll try not to go into the same territory that he does - my point is broader and probably weaker as an argument, so I'd really recommend watching this video yourself.
 
 ---
 class: middle
@@ -172,9 +162,13 @@ The reason I've come along to Makers to talk to you is that a lot of the critici
 ---
 class: middle, center
 
-# Overload
+# Let's Play A Game
+
+(insert picture from Saw films here)
 
 ???
+
+So let's play a game.
 
 ---
 class: middle, center
@@ -326,13 +320,14 @@ class: middle, center
 
 ???
 
-What about this mess?
+What about this mess? Flux is a worm that lives in your digestive tract, reflux is when you vomit a little bit. Redux is when you do something a second time around (although this is the third time), Thunk is the past participle of think, and a saga is a Norse epic.
 
-All sound like indigestion medication to me.
+But they all sound like indigestion medication to me.
 
 That's how I feel - indigested. Am I meant to know about all of these? Can I evaluate all of these?
 
 These were all things that I plucked out of my brain - I didn't need to look them up.
+
 ---
 class: middle, center
 
@@ -347,13 +342,33 @@ This is the crap that goes through my head when I'm trying to get some work done
 ---
 class: middle, center
 
+# Never Ending Cycle
+
+???
+
+And it's a cycle - you're constantly chasing your own tail. You start using framework X, but framework X doesn't implement feature A, and it's not easy or possible to extend it, so you move over to framework Y - which solves all your problems! And you're happy, for a while, until you need to add a feature not covered in framework Y and you need to move to framework Z. Or worse - framework Y isn't *gasp* functional enough. Or isn't event driven. Or just isn't COOL anymore, so now you _have_ to use framework Z because of all the new blog posts on Dev.To about how you won't have a job in two years unless you know Z.
+
+---
+class: middle, center
+
+# Framework Samsara
+
+???
+
+I think of this as Framework Samsara. You know about Samsara, right? I'm going to get this a bit wrong, so I'm sorry if I offend any Buddhists in the room, but it's the Buddhist idea of the endless cycle of suffering from pursuing unattainable happiness through material things.
+
+(this is the insight I had on the Tube this morning)
+
+---
+class: middle, center
+
 # Good News!
 
 ## _YOU DON'T NEED ANY OF THEM_
 
 ???
 
-So I've got some good news!
+So I've got some good news, boddhisatvas! You can break the cycle! Just as Buddha says we break the cycle of samsara by ceasing to desire, so we can end framework samsara by... ceasing to use a framework! Instant Web Development Nirvana!
 
 ---
 class: middle
@@ -365,19 +380,29 @@ class: middle
 - JavaScript
 - A Web Server + HTTP Library
 
+???
+
+All you need are (probably) these four things, and the wisdom to know when to use them and how to use them.
+
 ---
 class: center, middle
 
 # Objections!
 
+(insert image of Phoenix Whassisface, Ace Attorney)
+
 ???
 
-so why might this be bad idea?
+So why might this be bad idea? Like I said, I got some stick for suggesting this. Let's look at some of the objections.
 
 ---
 class: middle, center
 
 # Q: But it's hard
+
+???
+
+Some of the objections are that it's hard(er) for people just starting out to use the simple technologies that come with every browser. Really?
 
 ---
 class: middle, center
@@ -385,6 +410,8 @@ class: middle, center
 # A: Modern HTML, CSS, JS have modern APIs
 
 ???
+
+So I disagree, and feel that these technologies are _more_ inclusive and welcoming to a junior developer than the reams of time and effort that you'll put in to learning how to create a web app in a framework.
 
 A lot (not all) of these frameworks are from THE WAY BEFORE TIMES, when JavaScript was (even more) horrible, HTML was built of `div`s and CSS was what you used to make text blink.
 
@@ -469,7 +496,7 @@ end
 
 Web Server / HTTP Library ... well, this might be a bit trickier for you. Many languages will now provide a built in way of creating an HTTP server, and some convenience functions/classes around HTTP requests and responses. Go is a good example, but also things like HTTP4J in Kotlin, or Rack in Ruby, are good examples of a lightweight 'library' approach to building a server.
 
-That said, and despite my best wishes, I can understand why you might use a lightweight framework approach - something like Sinatra. But take a look at Rack on its own sometime! It might be all you need. The same goes for Java - take a look at something like [uttlerlyidle](https://github.com/bodar/utterlyidle) - or even [Spark](http://sparkjava.com/) before you use something like Spring.
+That said, and despite my best wishes, I can understand why you might use a lightweight framework approach - something like Sinatra. We should be pragmatic. But take a look at Rack on its own sometime! It might be all you need. The same goes for Java - take a look at something like [uttlerlyidle](https://github.com/bodar/utterlyidle) - or even [Spark](http://sparkjava.com/) before you use something like Spring.
 
 ---
 class: middle, center
